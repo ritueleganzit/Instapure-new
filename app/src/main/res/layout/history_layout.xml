@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    app:cardBackgroundColor="#F4F2FF"
+    app:cardCornerRadius="5dp"
+    android:padding="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="10dp"
+    app:cardElevation="0dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TableLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book Date"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:textColor="@color/textColor"></TextView>
+            <TextView android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text=":" android:layout_weight="1"
+                android:textColor="@color/textColor"></TextView>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 May 2019"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:textColor="@color/textColor"></TextView>
+
+        </TableRow>
+        <TableRow android:layout_marginTop="10dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of Package  "
+                android:layout_weight="1"
+                android:gravity="start"
+                android:textColor="@color/textColor"></TextView>
+            <TextView android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text=":" android:layout_weight="1"
+                android:textColor="@color/textColor"></TextView>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:textColor="@color/textColor"></TextView>
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.cardview.widget.CardView>

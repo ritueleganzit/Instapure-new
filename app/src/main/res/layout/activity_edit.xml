@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:padding="15dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        android:elevation="2dp"
+        android:background="@android:color/white"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:contentInsetEndWithActions="0dp"
+        android:layout_alignParentTop="true"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:layout_gravity="start"
+                android:id="@+id/back"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+            <TextView
+                android:layout_toRightOf="@+id/back"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:text="Edit Profile"
+                android:textColor="#535353"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+android:text="Done"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <View android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_above="@+id/first"
+        android:layout_below="@+id/toolbar"
+        android:background="@drawable/toolbar_dropshadow"/>
+    <LinearLayout
+        android:id="@+id/first"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_below="@+id/toolbar"
+            android:fitsSystemWindows="true"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:background="#fff"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolbar">
+                <LinearLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_below="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:id="@+id/pic_layout"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:scaleType="centerInside"
+                            android:orientation="vertical" >
+
+
+
+                            <RelativeLayout
+                                android:id="@+id/user_add"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/profile_pic"
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="0dp"
+                                    android:transitionName="simple_activity_transition" />
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:padding="5dp"
+                                    android:src="@mipmap/ic_add"
+                                    android:background="@drawable/green_circle_bg"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentTop="true"
+                                    />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/content"
+                    android:layout_below="@+id/header"
+                    android:focusableInTouchMode="true"
+                    android:layout_margin="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#fff"
+                    >
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        >
+                        <EditText
+                            android:fontFamily="@font/roboto_regular"
+                            android:id="@+id/fname"
+                            android:layout_width="match_parent"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+
+                            android:textColor="@color/textColor"
+
+                            android:text="User"
+                            android:inputType="textPersonName"
+                            android:layout_height="wrap_content"
+                            android:hint="Name"
+                            android:textColorHint="#878787"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        >
+                        <EditText
+                            android:id="@+id/lname"
+                            android:layout_width="match_parent"
+                            android:maxLines="1"
+                            android:inputType="textPersonName"
+                            android:fontFamily="@font/roboto_regular"
+                            android:layout_height="wrap_content"
+                            android:hint="Mobile Number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="@color/textColor"
+android:text="000000000"
+                            android:textColorHint="#878787"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        >
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:maxLines="1"
+                            android:fontFamily="@font/roboto_regular"
+                            android:inputType="textEmailAddress"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="@color/textColor"
+android:text="use@gmail.com"
+
+                            android:textColorHint="#878787"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        >
+                        <EditText
+                            android:id="@+id/phone"
+                            android:layout_width="match_parent"
+                            android:maxLines="1"
+                            android:focusable="false"
+                            android:fontFamily="@font/roboto_regular"
+                            android:inputType="text"
+                            android:layout_height="wrap_content"
+                            android:hint="Gender"
+                            android:textColor="@color/textColor"
+
+                            android:text="Male"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+
+                            android:textColorHint="#878787"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        >
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:maxLines="1"
+                            android:focusable="false"
+                            android:fontFamily="@font/roboto_regular"
+                            android:inputType="text"
+                            android:layout_height="wrap_content"
+                            android:hint="Company"
+                            android:textColor="@color/textColor"
+
+                            android:text="Dx Mind"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+
+                            android:textColorHint="#878787"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        >
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:maxLines="3"
+                            android:focusable="false"
+                            android:fontFamily="@font/roboto_regular"
+                            android:inputType="textPostalAddress"
+                            android:layout_height="wrap_content"
+                            android:hint="Location"
+                            android:textColor="@color/textColor"
+                            android:text="Main Rd, near SG Highway"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+
+                            android:textColorHint="#878787"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

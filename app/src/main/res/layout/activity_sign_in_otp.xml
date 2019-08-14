@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    tools:context=".SignInActivity">
+<androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:gravity="start"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_margin="5dp"
+
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We have sent a 4 digit OTP"/>
+
+
+        <TextView
+
+
+android:layout_margin="5dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On +91987654321"/>
+
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="100dp"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <me.philio.pinentry.PinEntryView
+            android:id="@+id/vr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:digitBackground="@drawable/pin_bg"
+            app:digitElevation="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+
+            app:digitTextColor="@android:color/darker_gray"
+
+            app:digitSpacing="15dp"
+            app:mask=""
+            app:pinInputType="number" />
+        <TextView
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/textColor"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waiting for OTP..."
+            android:gravity="center"/>
+        <TextView
+            android:textSize="16sp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto_regular"
+android:gravity="center"
+
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resendotp"/>
+
+        <Button
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_bg"
+            android:text="Submit"
+            android:fontFamily="@font/roboto_medium"
+
+            android:id="@+id/submitotp"
+            android:textColor="@android:color/white" />
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    tools:context=".SignInActivity">
+
+
+    <LinearLayout
+android:layout_centerHorizontal="true"
+
+android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+android:layout_marginTop="30dp"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:scaleType="centerInside"
+            android:layout_height="200dp"
+            android:src="@drawable/signinimg"/>
+        <TextView
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/textColor"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign In"/>
+ <TextView
+     android:layout_margin="5dp"
+     android:fontFamily="@font/roboto_light"
+android:textStyle="bold"
+     android:textColor="@color/textColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signintxt"/>
+
+
+        <EditText
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_shadow"
+            android:ems="10"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:fontFamily="@font/roboto_light"
+            android:id="@+id/mobile"
+            android:hint="@string/entermobile"
+            android:padding="12dp"
+            android:inputType="number"
+            android:textColorHint="#CCCCCC" />
+        <TextView
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/btn_bg"
+            android:text="Next"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:fontFamily="@font/roboto_light"
+            android:paddingLeft="5dp"
+            android:id="@+id/next"
+            android:textColor="@android:color/white" />
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Instapure</string>
+    <string name="signintxt">For collecting you Amaara InstaPure package</string>
+    <string name="signup">Welcome to Amaara InstaPure</string>
+    <string name="entermobile">Enter Mobile Number</string>
+
+
+    <string name="resendotp">Resend OTP?</string>
+    <string name="name">Name*</string>
+    <string name="mobile">Mobile Number*</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender*</string>
+    <string name="location">Location*</string>
+    <string name="company">Company*</string>
+    <string name="already">Already a member ? Sign in</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

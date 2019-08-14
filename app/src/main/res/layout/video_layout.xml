@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+android:layout_margin="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.eleganzit.instapure.utils.SquareImageView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/search_photo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="1dp"
+        android:scaleType="centerCrop">
+
+    </com.eleganzit.instapure.utils.SquareImageView>
+    <ImageView
+        android:layout_width="45dp"
+        android:src="@drawable/play"
+        android:layout_gravity="center"
+        android:layout_height="45dp" />
+
+
+</FrameLayout>
