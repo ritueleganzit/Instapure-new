@@ -1,23 +1,53 @@
 package com.eleganzit.instapure;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import me.philio.pinentry.PinEntryView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.transition.Fade;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.eleganzit.instapure.api.RetrofitAPI;
+import com.eleganzit.instapure.api.RetrofitInterface;
+import com.eleganzit.instapure.model.RegisterUserResponse;
+import com.eleganzit.instapure.model.ValidateLoginResponse;
+import com.eleganzit.instapure.utils.UserLoggedInSession;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.stfalcon.smsverifycatcher.OnSmsCatchListener;
+import com.stfalcon.smsverifycatcher.SmsVerifyCatcher;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignInOtpActivity extends AppCompatActivity {
+
+    TextView submit,txt_mobile;
+    PinEntryView vr_code;
+    ProgressDialog progressDialog;
+    String mobile;
+    UserLoggedInSession userLoggedInSession;
+    private String Token,devicetoken;
+    SmsVerifyCatcher smsVerifyCatcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         setContentView(R.layout.activity_sign_in_otp);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -28,14 +58,166 @@ public class SignInOtpActivity extends AppCompatActivity {
             getWindow().setEnterTransition(fade);
             getWindow().setExitTransition(fade);
         }
-        findViewById(R.id.submitotp).setOnClickListener(new View.OnClickListener() {
+        userLoggedInSession = new UserLoggedInSession(SignInOtpActivity.this);
+
+        mobile=getIntent().getStringExtra("mobile");
+
+        submit=findViewById(R.id.submitotp);
+        txt_mobile=findViewById(R.id.txt_mobile);
+        vr_code=findViewById(R.id.vr_code);
+        progressDialog = new ProgressDialog(SignInOtpActivity.this);
+        progressDialog.setMessage("Please Wait");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+
+        txt_mobile.setText("+91"+mobile);
+
+
+        smsVerifyCatcher = new SmsVerifyCatcher(this, new OnSmsCatchListener<String>() {
+            @Override
+            public void onSmsCatch(String message) {
+                String code = parseCode(message);//Parse verification code
+                vr_code.setText(code);//set code in edit text
+                //then you can send verification code to server
+            }
+        });
+
+
+        Thread t=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Token= FirebaseInstanceId.getInstance().getToken();
+                if (Token!=null)
+                {
+
+                    devicetoken=Token;
+
+                    Log.d("Rrrrrmytokenn", Token+"  "+devicetoken);
+
+                    StrictMode.ThreadPolicy threadPolicy = new StrictMode.ThreadPolicy.Builder().build();
+                    StrictMode.setThreadPolicy(threadPolicy);
+                    try {
+                        JSONObject jsonObject=new JSONObject(Token);
+                        Log.d("mytoken", jsonObject.getString("token"));
+                        //devicetoken=jsonObject.getString("token");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    //getLoginBoth(Token);
+
+                }
+                else
+                {
+                    Toast.makeText(SignInOtpActivity.this, "No token", Toast.LENGTH_SHORT).show();
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });t.start();
+
+
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(SignInOtpActivity.this, HomeActivity.class);
 
-                startActivity(i);
-                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+                if(vr_code.getText().toString().length()<4)
+                {
+                    Toast.makeText(SignInOtpActivity.this, "Please enter valid otp", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    loginUser();
+                }
             }
         });
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        smsVerifyCatcher.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        smsVerifyCatcher.onStop();
+    }
+
+    public String parseCode(String message) {
+        Pattern p = Pattern.compile("\\b\\d{4}\\b");
+        Matcher m = p.matcher(message);
+        String code = "";
+        while (m.find()) {
+            code = m.group(0);
+        }
+        return code;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        smsVerifyCatcher.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+
+    private void loginUser() {
+        progressDialog.show();
+        RetrofitInterface myInterface = RetrofitAPI.getRetrofit().create(RetrofitInterface.class);
+        Call<ValidateLoginResponse> call = myInterface.loginUser(mobile,vr_code.getText().toString(),devicetoken+"");
+        call.enqueue(new Callback<ValidateLoginResponse>() {
+            @Override
+            public void onResponse(Call<ValidateLoginResponse> call, Response<ValidateLoginResponse> response) {
+                progressDialog.dismiss();
+                if (response.isSuccessful()) {
+                    if (response.body().getStatus().toString().equalsIgnoreCase("1")) {
+                        if (response.body().getData() != null) {
+                            String email, id, username,mobile,photo, gender,location,company;
+                            for (int i = 0; i < response.body().getData().size(); i++) {
+                                email = response.body().getData().get(i).getEmail();
+                                id = response.body().getData().get(i).getUserId();
+                                username = response.body().getData().get(i).getFullname();
+                                mobile = response.body().getData().get(i).getContact();
+                                photo = response.body().getData().get(i).getPhoto();
+                                gender = response.body().getData().get(i).getGender();
+                                location = response.body().getData().get(i).getAddress();
+                                company = response.body().getData().get(i).getCompanyName();
+
+                                userLoggedInSession.createLoginSession(email, id, username,mobile,photo, gender,location,company);
+
+                            }
+
+                        }
+                    } else {
+
+                        Toast.makeText(SignInOtpActivity.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                else {
+
+                    Toast.makeText(SignInOtpActivity.this, "Server or Internet Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ValidateLoginResponse> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(SignInOtpActivity.this, "Server or Internet Error" , Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
 }

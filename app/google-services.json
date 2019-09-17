@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "664926250530",
+    "firebase_url": "https://instapure-2eae3.firebaseio.com",
+    "project_id": "instapure-2eae3",
+    "storage_bucket": "instapure-2eae3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664926250530:android:e47e5f65c0d62c13b14c7b",
+        "android_client_info": {
+          "package_name": "com.eleganzit.instapure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664926250530-bnb9deflnm3mj75s98kod7rchb8katgc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eleganzit.instapure",
+            "certificate_hash": "76c03bd26c50fd9ed3808d19d7ad884afb9dde92"
+          }
+        },
+        {
+          "client_id": "664926250530-dvvcbip3s6pc66eic2171aeb7vq4f8vv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqqTk_JNgyjKoMxPLrEjiWSGD6nfR94kc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664926250530-dvvcbip3s6pc66eic2171aeb7vq4f8vv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

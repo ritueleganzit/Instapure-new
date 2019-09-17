@@ -1,64 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:facebook="http://schemas.android.com/apk/res-auto"
-    >
+    android:background="@color/colorPrimaryDark">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:padding="15dp"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white"
+        android:elevation="2dp"
         app:contentInsetEnd="0dp"
+        app:contentInsetEndWithActions="0dp"
         app:contentInsetLeft="0dp"
         app:contentInsetRight="0dp"
-        android:elevation="2dp"
-        android:background="@android:color/white"
         app:contentInsetStart="0dp"
-        app:contentInsetStartWithNavigation="0dp"
-        app:contentInsetEndWithActions="0dp"
-        android:layout_alignParentTop="true"
-       >
+        app:contentInsetStartWithNavigation="0dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp">
+
             <ImageView
-                android:layout_gravity="start"
                 android:id="@+id/back"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/ic_back"
                 android:layout_width="32dp"
-                android:layout_height="32dp" />
-            <TextView
-android:layout_toRightOf="@+id/back"
-                android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-android:fontFamily="@font/roboto_medium"
-                android:textStyle="bold"
-                android:text="Profile"
-                android:textColor="#535353"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_centerVertical="true"
                 android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="start"
+                android:src="@mipmap/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/back"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/profile"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#535353"
+                android:textStyle="bold" />
+
+            <ImageView
                 android:id="@+id/edit"
-                android:src="@mipmap/ic_edit"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_alignParentEnd="true"
-                />
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_edit" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
-    <View android:layout_width="match_parent"
+
+    <View
+        android:layout_width="match_parent"
         android:layout_height="5dp"
         android:layout_above="@+id/first"
         android:layout_below="@+id/toolbar"
-        android:background="@drawable/toolbar_dropshadow"/>
+        android:background="@drawable/toolbar_dropshadow" />
+
     <LinearLayout
         android:id="@+id/first"
 
@@ -67,14 +72,16 @@ android:fontFamily="@font/roboto_medium"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
             android:gravity="bottom"
-            android:padding="30dp"
-
             android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingBottom="30dp"
+            android:paddingTop="30dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark">
             <!-- <com.facebook.login.widget.ProfilePictureView
                  android:id="@+id/friendProfilePicture"
@@ -82,16 +89,13 @@ android:fontFamily="@font/roboto_medium"
                  android:layout_height="wrap_content"
                  android:layout_centerInParent="true"
                  />-->
-            <ImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <ImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
-                android:transitionName="simple_activity_transition"
-                
                 android:layout_gravity="top"
                 android:elevation="1dp"
-                />
+                android:transitionName="simple_activity_transition" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,96 +103,242 @@ android:fontFamily="@font/roboto_medium"
                 android:layout_gravity="top"
                 android:layout_marginLeft="20dp"
                 android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="@color/textColor"
-                    android:id="@+id/fname"
-                    android:text="User"
-                    android:fontFamily="@font/roboto_medium"
 
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 <TextView
+                    android:id="@+id/txt_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/textColor"
-                    android:text="user@gmail.com"
-                    android:id="@+id/phone"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Ankit Rajpoot"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/txt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/roboto_light"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+                    android:text="ankit.rajpoot@gmail.com"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:textColor="@color/textColor" />
 
                 <TextView
+                    android:id="@+id/txt_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/textColor"
-                    android:text="00000000"
                     android:fontFamily="@font/roboto_medium"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+                    android:text="+91 9876535672"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/texthintColors" />
             </LinearLayout>
 
 
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#C4C9C9C9"></View>
+            android:background="#C4C9C9C9"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/first"
         android:background="#fff"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#535353"
-            android:padding="5dp"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/roboto_medium"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="Gender"/>
+        android:orientation="vertical">
 
-        <View
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#C4C9C9C9"></View>
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#535353"
-            android:padding="5dp"
-            android:fontFamily="@font/roboto_medium"
+            android:layout_marginTop="10dp"
+            android:clickable="false"
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
-            android:layout_margin="10dp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="Location"/>
-<View
+            <EditText
+                android:id="@+id/ed_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/gender_edit"
+                android:text="Male"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:inputType="textPostalAddress"
+                android:maxLines="3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/textColor"
+
+                android:textColorHint="#878787" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#C4C9C9C9"></View>
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#535353"
-            android:layout_margin="10dp"
-            android:padding="5dp"
-            android:fontFamily="@font/roboto_medium"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:clickable="false"
+            android:layout_marginRight="20dp"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="Company"/>
+            <EditText
+                android:id="@+id/ed_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/location"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:text="Bengaluru"
+                android:inputType="textPostalAddress"
+                android:maxLines="3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/textColor"
+                android:focusable="false"
+                android:textColorHint="#878787" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <View
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#C4C9C9C9"></View>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clickable="false"
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
+
+            <EditText
+                android:id="@+id/ed_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/company_profile"
+                android:clickable="false"
+                android:text="DxMines"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/textColor"
+                android:textColorHint="#878787" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/spinner_bg"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/label1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingLeft="4dp"
+                android:textColor="@color/texthintColors"
+                android:text="@string/gender_edit"/>
+
+            <TextView
+                android:id="@+id/txt_gender"
+                android:layout_below="@+id/label1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingTop="8dp"
+                android:text="Male"
+                android:paddingLeft="4dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                android:paddingBottom="4dp"
+                android:spinnerMode="dropdown" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/spinner_bg"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/label2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingLeft="4dp"
+                android:textColor="@color/texthintColors"
+                android:text="@string/location"/>
+
+            <TextView
+                android:id="@+id/txt_location"
+                android:layout_below="@+id/label2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingTop="8dp"
+                android:text="Bengaluru"
+                android:paddingLeft="4dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                android:paddingBottom="4dp"
+                android:spinnerMode="dropdown" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/spinner_bg"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/label3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingLeft="4dp"
+                android:textColor="@color/texthintColors"
+                android:text="@string/company_profile"/>
+
+            <TextView
+                android:id="@+id/txt_company"
+                android:layout_below="@+id/label3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingTop="8dp"
+                android:text="DxMines"
+                android:paddingLeft="4dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                android:paddingBottom="4dp"
+                android:spinnerMode="dropdown" />
+
+        </RelativeLayout>
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

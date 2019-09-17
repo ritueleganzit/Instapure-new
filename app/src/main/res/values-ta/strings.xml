@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">Instapure</string>
+    <string name="signintxt">For collecting you Amaara InstaPure package</string>
+    <string name="signup">Welcome to Amaara InstaPure</string>
+    <string name="entermobile">Enter Mobile Number</string>
+
+    <string name="facebook_app_id">676980626154824</string>
+
+    <string name="resendotp">Resend OTP?</string>
+    <string name="name">Name*</string>
+    <string name="mobile">Mobile Number*</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender*</string>
+    <string name="location">Location</string>
+    <string name="company">Company*</string>
+    <string name="already">Already a member ? Sign in</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_resource">Gender*</string>
+    <string name="signup_title">Sign Up</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="sign_in">Sign In</string>
+    <string name="next">Next</string>
+    <string name="we_have_sent_otp">We have sent a 4 digit OTP</string>
+    <string name="on">On</string>
+    <string name="waiting_for_otp">Waiting for OTP...</string>
+    <string name="submit">Submit</string>
+    <string name="home">Home</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
+    <string name="hi">Hi </string>
+    <string name="here_are_some_info_videos">Here are some informational video.</string>
+    <string name="reorder">Reorder</string>
+    <string name="promotional">Promotional</string>
+    <string name="how_to_use_product_videos">How to use product instruction videos</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="done">Done</string>
+    <string name="gender_edit">Gender</string>
+    <string name="feedback">Feedback</string>
+    <string name="feedback_small">feedback</string>
+    <string name="type_here">Type Here...</string>
+    <string name="notification">Notification</string>
+    <string name="order_confirmation">Order Confirmation</string>
+    <string name="qr_scanned_successfully_for_the_month">QR scanned successfully for the month.</string>
+    <string name="thanks_for_choosing">Thanks for choosing amaara instapure package.</string>
+    <string name="product_instruction">Product instruction</string>
+    <string name="company_profile">Company</string>
+    <string name="post_on_fb_or_insta">Post on Facebook or Instagram, and will earn 5 reward point for each posting</string>
+    <string name="congrats">Congratulations, you have claimed 1 month free Amaara Instapure pack,now purify water cheaper to RO cost.</string>
+    <string name="question1">Q1 : Have you been using Instapure regularly of few times?</string>
+    <string name="regularly">Regularly</string>
+    <string name="few_times">Few times</string>
+    <string name="question2">Q2 : Does your health feel better than before using Instapure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="question3"><![CDATA[Q3 : Will you continue using Instapure &amp; Recommend others? (Yes/No)]]></string>
+    <string name="comment">Comment</string>
+    <string name="reward_points">Rewards Points</string>
+    <string name="points">Points</string>
+    <string name="filter">Filter</string>
+    <string name="quantity_delivered">Quantity delivered</string>
+    <string name="min">Min</string>
+    <string name="month">Month</string>
+    <string name="clear">Clear</string>
+    <string name="apply">Apply</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="book_date">Book Date</string>
+    <string name="number_of_package">Number of Package</string>
+    <string name="language">Language</string>
+    <string name="pick_your_language">Pick your\nlanguage</string>
+    <string name="default_language_is_english">Default language is English, Tap another to change language.</string>
+    <string name="video">Video</string>
+    <string name="no_videos_found">No videos found</string>
+    <string name="no_noti_found">No notifications</string>
+    <string name="no_history">No history</string>
+    <string name="complete_action">Complete Action using...</string>
+    <string name="please_enter_name">Please enter name</string>
+    <string name="please_enter_mobile_number">Please enter mobile number</string>
+    <string name="please_select_gender">Please select gender</string>
+    <string name="please_select_company">Please select company</string>
+    <string name="please_select_from_company">Please select one from available companies</string>
+
+    <string-array name="numbers">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="genders">
+        <item></item>
+        <item>@string/male</item>
+        <item>@string/female</item>
+    </string-array>
+    <string-array name="ed_genders">
+        <item>@string/male</item>
+        <item>@string/female</item>
+    </string-array>
+</resources>

@@ -1,0 +1,6 @@
+package com.eleganzit.instapure.utils;
+
+import androidx.core.content.FileProvider;
+
+public class GenericFileProvider extends FileProvider {}
+

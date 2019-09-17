@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 
 android {
     compileSdkVersion 29
@@ -9,7 +24,12 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
         release {
@@ -20,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -32,5 +52,37 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.budiyev.android:code-scanner:2.1.0'
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
+    implementation 'com.github.franmontiel:FullScreenDialog:1.0.1'
+    implementation 'com.appyvet:materialrangebar:1.4.6'
+    implementation 'com.github.mirrajabi:search-dialog:1.2.3'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation project(path: ':multi-image-selector')
+    implementation 'org.apache.commons:commons-io:1.3.2'
+    implementation 'com.allattentionhere:autoplayvideos:0.2.0'
+    implementation 'com.devbrackets.android:exomedia:4.3.0'
+    implementation 'com.google.android.exoplayer:exoplayer:2.9.1'
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:v1.7.0'
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    implementation 'com.facebook.android:facebook-share:5.5.0'
+    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+    implementation 'com.squareup.picasso:picasso:3.0.0-SNAPSHOT'
+    implementation 'com.squareup.picasso:picasso-provider:3.0.0-SNAPSHOT'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation 'com.google.firebase:firebase-analytics:16.0.4'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
+
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+
+    implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
 
 }
+
+apply plugin: 'com.google.gms.google-services'
+

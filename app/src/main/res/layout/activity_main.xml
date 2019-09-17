@@ -3,82 +3,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:focusableInTouchMode="true"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:focusableInTouchMode="true"
     tools:context=".SignInActivity">
 
 
     <LinearLayout
-android:layout_centerHorizontal="true"
-
-android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-android:layout_marginTop="30dp"
-        android:padding="5dp"
         android:layout_width="match_parent"
-        android:orientation="vertical"
+
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
         android:gravity="center"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:padding="5dp">
+
         <ImageView
-            android:padding="10dp"
             android:layout_width="match_parent"
-            android:scaleType="centerInside"
             android:layout_height="200dp"
-            android:src="@drawable/signinimg"/>
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/signinimg" />
+
         <TextView
-            android:fontFamily="@font/roboto_light"
-            android:textColor="@color/textColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/roboto_light"
+            android:text="@string/sign_in"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign In"/>
- <TextView
-     android:layout_margin="5dp"
-     android:fontFamily="@font/roboto_light"
-android:textStyle="bold"
-     android:textColor="@color/textColor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/signintxt"/>
+            android:layout_margin="5dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="@string/signintxt"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
 
 
         <EditText
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
+            android:id="@+id/ed_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/edittext_shadow"
             android:ems="10"
-            android:textStyle="bold"
+            android:maxLength="10"
+            android:fontFamily="@font/roboto_light"
+            android:hint="@string/entermobile"
+            android:inputType="number"
+            android:padding="12dp"
             android:paddingLeft="5dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:fontFamily="@font/roboto_light"
-            android:id="@+id/mobile"
-            android:hint="@string/entermobile"
-            android:padding="12dp"
-            android:inputType="number"
-            android:textColorHint="#CCCCCC" />
+            android:textColorHint="#CCCCCC"
+            android:textStyle="bold" />
+
         <TextView
-            android:gravity="center"
-            android:padding="12dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
+            android:id="@+id/next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/btn_bg"
-            android:text="Next"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:fontFamily="@font/roboto_light"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:padding="12dp"
             android:paddingLeft="5dp"
-            android:id="@+id/next"
-            android:textColor="@android:color/white" />
-
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
